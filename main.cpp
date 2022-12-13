@@ -1,8 +1,10 @@
 #include "map.h"
+#include "Controller.h"
 
 using namespace Roles;
 
 int main() {
-    Battlefield alpha;
-    alpha.startBattle();
+    Battlefield alfa;
+    Controller control(alfa);
+    control.start();
 }

@@ -1,6 +1,7 @@
 #include "classes.h"
 #include "army.h"
 #include <random>
+#include "View.h"
 
 using namespace std;
 
@@ -75,20 +76,11 @@ private:
         }
     }
 
-    void displayBattlefield() {
-        for (int i=0; i<maxSize-1; i++) {
-            for (int j=0; j<maxSize-1; j++) {
-                cout << field[i][j] << " ";
-            }
-            cout << endl;
-        }
-    }
-
     void refreshBattlefield() {
         for (auto army : armies.armies) {
             field[army.x][army.y] = army.name[0];
         }
-        displayBattlefield();
+        View(field, maxSize);
     }
 
     char scanCell(int x, int y) {
@@ -139,7 +131,7 @@ public:
         initField();
         placeFighters();
         // Events
-        refreshBattlefield();
+        View(field, maxSize);
     }
 
     void startBattle() {
@@ -151,7 +143,6 @@ public:
                 checkSurundings(army);
                 refreshBattlefield();
             }
-//            break;
         }
     }
 

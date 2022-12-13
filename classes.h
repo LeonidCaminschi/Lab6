@@ -623,7 +623,7 @@ namespace Roles {
             mana = max_mana;
         }
 
-        int summonDamage() `{`
+        int summonDamage() {
             if (mana >= 7) {
                 mana -= 7;
                 cout << name << " has ordered his summons to attack" << endl;
